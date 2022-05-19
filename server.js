@@ -29,19 +29,17 @@ const db = knex({
 
 
 const app = express();
-
-const saltRounds = 10;
 app.use(cors());
 app.use(express.json()); 
 
 
 
-app.get('/', (req, res) => { res.send("it is working!")})
+app.get('/', (req, res) => { res.send(database.users)})
 app.post('/signin',(req,res)=>{signin.handleSignin(req,res,db,bcrypt)} )
 app.post('/register', (req, res) => { register.handleRegister(req , res , db , bcrypt) })
 app.get('/profile/:id', (req,res)=> {profile.handleProfile(req,res,db)})
 app.put('/image',(req,res)=>{image.handleImagecounts(req,res,db)} )
-
+app.post('/imageurl',(req,res)=>{image.handleApiCall(req,res)})
 app.listen(process.env.PORT || 3000, function(){
   console.log("server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
