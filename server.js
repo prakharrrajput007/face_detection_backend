@@ -30,7 +30,7 @@ const db = new Client({
   }
 });
 
-client.connect();
+db.connect();
 
 // db.select('*').from('users').then(data => {
 //     console.log(data);
