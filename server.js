@@ -42,6 +42,6 @@ app.post('/register', (req, res) => { register.handleRegister(req , res , db , b
 app.get('/profile/:id', (req,res)=> {profile.handleProfile(req,res,db)})
 app.put('/image',(req,res)=>{image.handleImagecounts(req,res,db)} )
 
-app.listen(process.env.PORT || 3000, ()=> {
-  console.log(`app is running on port ${process.env.PORT}`);
-})
+app.listen(process.env.PORT || 3000, function(){
+  console.log("server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
