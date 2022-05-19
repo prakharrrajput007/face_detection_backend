@@ -12,25 +12,25 @@ const profile = require('./controllers/profile')
 
 const image = require('./controllers/image')
 
-// const db = knex({
-//   client: 'pg',
-//   connection: {
-//     connectionString: process.env.DATABASE_URL,
-//     ssl: {
-//       rejectUnauthorized: false
-//     }
-//   }
-// });
-const { Client } = require('pg');
-
-const db = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
+const db = knex({
+  client: 'pg',
+  connection: {
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false
+    }
   }
 });
+// const { Client } = require('pg');
 
-db.connect();
+// const db = new Client({
+//   connectionString: process.env.DATABASE_URL,
+//   ssl: {
+//     rejectUnauthorized: false
+//   }
+// });
+
+// db.connect();
 
 // db.select('*').from('users').then(data => {
 //     console.log(data);
